@@ -16,7 +16,7 @@ import {
 import Chart from './components/Chart';
 
 function App() {
-  const [weatherData, setweatherData] = useState({});
+  const [weatherData, setWeatherData] = useState({});
   const [expandedIndex, setExpanded] = useState(null);
   const [city, setCity] = useState('Sofia');
   const [open, setOpen] = useState(false);
@@ -35,7 +35,7 @@ function App() {
       const groupedWeather = _.chain(result.list)
         .groupBy(day => moment(day.dt_txt).format('L'))
         .value();
-      setweatherData(groupedWeather);
+      setWeatherData(groupedWeather);
     }
   };
 
@@ -67,10 +67,10 @@ function App() {
     <Container>
       <Container className={classes.search}>
         <FormControl className={classes.formControl}>
-          <InputLabel id="demo-controlled-open-select-label">City</InputLabel>
+          <InputLabel id='demo-controlled-open-select-label'>City</InputLabel>
           <Select
-            labelId="demo-controlled-open-select-label"
-            id="demo-controlled-open-select"
+            labelId='demo-controlled-open-select-label'
+            id='demo-controlled-open-select'
             open={open}
             onClose={handleClose}
             onOpen={handleOpen}
@@ -98,7 +98,7 @@ function App() {
             </Grid>
           ))}
       </Grid>
-      {expandedIndex != null && (
+      {expandedIndex !== null && (
         <Container className={classes.chart}>
           <Paper elevation={3}>
             <Chart data={weatherData[selectedIndex]} day={selectedIndex} city={city} />

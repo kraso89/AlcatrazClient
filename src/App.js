@@ -3,7 +3,7 @@ import './App.css';
 import moment from 'moment';
 import _ from 'lodash';
 import WeatherCard from './components/WeatherCard';
-import { makeStyles, fade } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import {
   Paper,
   Container,

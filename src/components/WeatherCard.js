@@ -15,7 +15,7 @@ import assets from '../assets';
 import moment from 'moment';
 
 export default function WeatherCard(props) {
-  const { data } = props;
+  const { data, day } = props;
   const mostCommon = arr =>
     arr.sort((a, b) => arr.filter(v => v === a).length - arr.filter(v => v === b).length).pop();
 
@@ -58,7 +58,7 @@ export default function WeatherCard(props) {
   const classes = useStyles();
   const loading = !data;
   const cardTitle = () => {
-    const compareDate = moment(data.day);
+    const compareDate = moment(day);
     const today = moment().endOf('day');
     const tomorrow = moment()
       .add(1, 'day')
@@ -78,7 +78,7 @@ export default function WeatherCard(props) {
               <CardHeader
                 className={classes.subHeader}
                 title={cardTitle()}
-                subheader={moment(data.day).format('ll')}
+                subheader={moment(day).format('ll')}
               />
               <CardContent className={classes.content}>
                 <Typography variant="h5">
